@@ -1,0 +1,79 @@
+
+#nav{
+    width: 90%;
+    height: 90%;
+    background-color: beige;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 20px;
+    
+}
+#nav>div+div{
+    width: 20%;
+    height: 80%;
+    border: 1px solid gray;
+    text-align: center;
+}
+input{
+width: 92%;
+padding-left: 30px;
+}
+#input{
+    width: 60%;
+ 
+}
+
+/* homepage css */
+#suggestions{
+    /* position: absolute; */
+    width: 50%;
+     margin-left: 137px;
+    height: 300px;
+    border: 1px solid black;
+    overflow-y: scroll;
+    padding-left: 30px;
+    margin-top: 10px;
+}
+
+/* The_dish css */
+
+#main2{
+  
+    width: 30%;
+    height: 300px;
+    text-align: center;
+    margin: auto;
+    /* margin-top: 50px; */
+    opacity: 0.9;
+    border-radius: 5px;
+    /* border: 1px solid greenyellow; */
+}
+ img{
+     width: 100%;
+     height: 70%;
+ }
+ #suggestions:hover{
+     cursor: pointer;
+ }
+ #overlap{
+     position: relative;
+     /* border: 1px solid black; */
+     height: 600px;
+ }
+ #suggestions{
+    /* border: 1px solid red; */
+    position: absolute;
+    z-index: 1;
+     width:49.5%;
+    height: 300px; 
+    border-radius: 5px;
+    background-color: antiquewhite;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* background-color: aqua; */
+ }
+
+
+
+
+ 

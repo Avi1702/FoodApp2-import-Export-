@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The dish</title>
+    <link rel="stylesheet" href="homepage.css"/>
+</head>
+<body>
+    <a href="homepage.html">back</a>
+    <!-- <div id="nav2"></div> -->
+    <div id="main"></div>
+
+    <div id="overlap">
+    <div id="show_Suggestions"></div>
+   <div id="main2">
+    <h2>Your Dish</h2>
+    <div id="display"></div>
+   </div>
+
+    </div>
+    
+</body>
+</html>
+<script type="module">
+
+    import {navbar,get_list,debounce} from "../navbar/navbar.js"
+
+    document.getElementById("main").innerHTML=navbar()
+
+    document.getElementById("search").addEventListener("input",debounce)
+
+    let dish_name=localStorage.getItem("dish_name")
+    console.log(dish_name)
+    display(dish_name)
+   
+  async function display(dish_name){
+//   console.log(dish_name)
+  try{
+let raw= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${dish_name}`)
+let real= await raw.json()
+
+let final_data=real.meals
+
+final_data.forEach(ele => {
+  
+    let image=document.createElement("img")
+    image.src=ele.strMealThumb
+
+    let p=document.createElement("p")
+    p.innerText="Name :"+" "+ele.strMeal
+
+    let p1=document.createElement("p")
+    p1.innerText="Category:"+" " +ele.strCategory
+
+    document.getElementById("display").append(image,p,p1)
+});
+
+  }
+  catch(error){
+console.log(error)
+  }
+
+}
+
+</script>
